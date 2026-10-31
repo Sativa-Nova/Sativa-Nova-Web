@@ -6,31 +6,128 @@
     <title>Contacto - Sativa Nova</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles_paginas.css">
+    <style>
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 25px;
+            text-align: left;
+        }
+        .canal-card {
+            background: rgba(20, 20, 28, 0.7);
+            border: 1px solid rgba(40, 211, 77, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .canal-card:hover {
+            transform: translateY(-5px);
+            border-color: #28d34d;
+        }
+        .canal-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #28d34d;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+        .canal-card p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .btn-canal {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #28d34d;
+            color: #14141c;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            border-radius: 25px;
+            transition: background 0.3s, transform 0.2s;
+            font-size: 0.95rem;
+        }
+        .btn-canal:hover {
+            background-color: #fff;
+            transform: scale(1.05);
+        }
+        .form-directo {
+            margin-top: 40px;
+            background: rgba(20, 20, 28, 0.5);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
 </head>
 <body>
+    <!-- Barra de Navegación -->
     <nav class="nav-secundaria">
-        <a href="../index.html"><img src="../Captura_de_pantalla_2026-09-16_103635-removebg-preview.png" alt="Sativa Nova Logo"></a>
+        <a href="../index.html"><img src="../Imagenes/Captura_de_pantalla_2026-09-16_103635-removebg-preview.png" alt="Sativa Nova Logo"></a>
         <ul class="menu-interno">
             <li><a href="../index.html">Inicio</a></li>
             <li><a href="Nosotros.html">Nosotros</a></li>
             <li><a href="Productos.html">Productos</a></li>
             <li><a href="Portafolio.html">Portafolio</a></li>
+            <li><a href="Galeria.html">Galería</a></li>
+            <li><a href="Ventas.html">Ventas</a></li>
+            <li><a href="Contacto.html" style="color: #28d34d;">Contacto</a></li>
         </ul>
     </nav>
 
+    <!-- Contenido Principal -->
     <section class="page-hero">
-        <div class="glass-box">
-            <h1 class="titulo-seccion">Escríbenos</h1>
-            <p class="texto-seccion">¿Tienes dudas sobre nuestros sistemas hidropónicos o quieres cotizar un proyecto a medida? Déjanos tus datos y un experto de Sativa Nova te contactará.</p>
+        <div class="glass-box" style="max-width: 950px;">
+            <h1 class="titulo-seccion">Comunícate con Sativa Nova</h1>
+            <p class="texto-seccion">¿Tienes dudas sobre nuestros sistemas hidropónicos o deseas cotizar un proyecto personalizado? Elige tu canal preferido para atención inmediata.</p>
             
-            <form class="formulario-contacto" action="#" method="POST">
-                <input type="text" name="nombre" placeholder="Tu Nombre Completo" required>
-                <input type="email" name="correo" placeholder="Tu Correo Electrónico" required>
-                <input type="tel" name="telefono" placeholder="Tu Teléfono (Opcional)">
-                <textarea name="mensaje" placeholder="¿En qué podemos ayudarte?" required></textarea>
-                <button type="submit" class="btn-enviar">Enviar Mensaje</button>
-            </form>
+            <div class="contacto-grid">
+                <!-- Canal WhatsApp -->
+                <div class="canal-card">
+                    <h3>WhatsApp Directo</h3>
+                    <p>Chatea al instante con nuestro equipo técnico y de ventas en Medellín.</p>
+                    <a href="https://wa.me/573000000000?text=Hola%20Sativa%20Nova,%20estoy%20interesado%20en%20sus%20sistemas%20hidropónicos." target="_blank" class="btn-canal">Abrir WhatsApp</a>
+                </div>
+
+                <!-- Canal Correo / Gmail -->
+                <div class="canal-card">
+                    <h3>Correo Electrónico</h3>
+                    <p>Envíanos tus requerimientos detallados y te responderemos en menos de 24 horas.</p>
+                    <a href="mailto:sativanova.col@gmail.com?subject=Consulta%20sobre%20Sistemas%20Hidropónicos&body=Hola%20Sativa%20Nova,%20me%20gustaría%20recibir%20más%20información%20sobre..." class="btn-canal">Enviar Correo</a>
+                </div>
+            </div>
+
+            <!-- Formulario interactivo que genera mensaje listo para WhatsApp -->
+            <div class="form-directo">
+                <h3 style="font-family: 'Montserrat', sans-serif; color: #fff; margin-bottom: 15px; font-size: 1.2rem;">O genera tu mensaje automático:</h3>
+                <form id="form-whatsapp" class="formulario-contacto" onsubmit="enviarWhatsApp(event)">
+                    <input type="text" id="nombre" placeholder="Tu Nombre Completo" required>
+                    <input type="tel" id="telefono" placeholder="Tu Teléfono o Celular" required>
+                    <textarea id="mensaje" placeholder="¿Qué sistema o producto te interesa?" required></textarea>
+                    <button type="submit" class="btn-enviar">Enviar por WhatsApp al instante</button>
+                </form>
+            </div>
         </div>
     </section>
+
+    <script>
+        function enviarWhatsApp(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const telefono = document.getElementById('telefono').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            const texto = `Hola Sativa Nova, mi nombre es *${nombre}* (Tel: ${telefono}). Mensaje: ${mensaje}`;
+            
+            // ⚠️ IMPORTANTE: Reemplaza "573000000000" con tu número real de celular con código de país (Ej: 57 para Colombia + tu número).
+            const numeroWhatsApp = "+573153181834"; 
+            
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
