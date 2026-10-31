@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costo y Venta - Sativa Nova</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_paginas.css">
+    <style>
+        .calculadora-card {
+            background: #1e1e24;
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 650px;
+            margin: 30px auto;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            border: 1px solid rgba(40, 211, 77, 0.3);
+            text-align: left;
+        }
+        .calc-header {
+            background: #2b2b36;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #28d34d;
+        }
+        .calc-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        .calc-header p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: #e2e8f0;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: #2b2b36;
+            border: 1px solid #444;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            border-color: #28d34d;
+        }
+        .btn-calcular {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background-color: #28d34d;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 10px;
+        }
+        .btn-calcular:hover {
+            background-color: #1eaa31;
+            transform: translateY(-2px);
+        }
+        .btn-limpiar {
+            display: block;
+            text-align: center;
+            background: none;
+            border: none;
+            color: #aaa;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            text-decoration: underline;
+        }
+        .btn-limpiar:hover {
+            color: #fff;
+        }
+        .resultado-box {
+            margin-top: 25px;
+            background: #14141c;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #28d34d;
+            display: none;
+        }
+        .resultado-box h3 {
+            color: #28d34d;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .resultado-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        .footer-stem {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-secundaria">
+        <a href="../index.html"><img src="../Imagenes/Captura_de_pantalla_2026-09-16_103635-removebg-preview.png" alt="Sativa Nova Logo"></a>
+        <ul class="menu-interno">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="Nosotros.html">Nosotros</a></li>
+            <li><a href="Productos.html">Productos</a></li>
+            <li><a href="Portafolio.html">Portafolio</a></li>
+            <li><a href="Galeria.html">Galería</a></li>
+            <li><a href="Ventas.html" style="color: #28d34d;">Ventas</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-hero" style="padding: 20px;">
+        <div class="calculadora-card">
+            <div class="calc-header">
+                <h2>COSTO Y VENTA</h2>
+                <p>Calculadora de costos de producción y precio de venta</p>
+            </div>
+
+            <form id="form-ventas">
+                <div class="form-group">
+                    <label for="nombre-producto">Nombre del producto</label>
+                    <input type="text" id="nombre-producto" class="form-control" placeholder="Ej. Abono orgánico" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cantidad-unidades">Cantidad de unidades producidas</label>
+                    <input type="number" id="cantidad-unidades" class="form-control" placeholder="0" min="1" required>
+                </div>
+
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem; color: #28d34d; margin: 25px 0 15px 0;">Costos de producción</h3>
+
+                <div class="form-group">
+                    <label for="materia-prima">Materia prima ($)</label>
+                    <input type="number" id="materia-prima" class="form-control" value="0" min="0" step="any">
+                </div>
+
+                <div class="form-group">
+                    <label for="mano-obra">Mano de obra ($)</label>
+                    <input type="number" id="mano-obra" class="form-control" value="0" min="0" step="any">
+                </div>
+
+                <div class="form-group">
+                    <label for="transporte">Transporte ($)</label>
+                    <input type="number" id="transporte" class="form-control" value="0" min="0" step="any">
+                </div>
+
+                <div class="form-group">
+                    <label for="otros-gastos">Otros gastos ($)</label>
+                    <input type="number" id="otros-gastos" class="form-control" value="0" min="0" step="any">
+                </div>
+
+                <div class="form-group">
+                    <label for="margen-ganancia">Margen de ganancia deseado (%)</label>
+                    <input type="number" id="margen-ganancia" class="form-control" value="30" min="0" step="any">
+                </div>
+
+                <button type="submit" class="btn-calcular">Calcular costos y precio de venta</button>
+                <button type="button" class="btn-limpiar" id="btn-limpiar">Limpiar formulario</button>
+            </form>
+
+            <div class="resultado-box" id="resultado-box">
+                <h3>Resultados del cálculo</h3>
+                <div class="resultado-item"><span>Costo Total de Producción:</span> <strong id="res-costo-total">$0.00</strong></div>
+                <div class="resultado-item"><span>Costo por Unidad:</span> <strong id="res-costo-unitario">$0.00</strong></div>
+                <div class="resultado-item"><span>Precio de Venta Sugerido (Unidad):</span> <strong id="res-precio-venta" style="color: #28d34d;">$0.00</strong></div>
+                <div class="resultado-item"><span>Ganancia Total Estimada:</span> <strong id="res-ganancia-total">$0.00</strong></div>
+            </div>
+
+            <div class="footer-stem">
+                Proyecto STEM - Herramienta de costos y ventas
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const form = document.getElementById('form-ventas');
+        const btnLimpiar = document.getElementById('btn-limpiar');
+        const resultadoBox = document.getElementById('resultado-box');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const unidades = parseFloat(document.getElementById('cantidad-unidades').value) || 1;
+            const materiaPrima = parseFloat(document.getElementById('materia-prima').value) || 0;
+            const manoObra = parseFloat(document.getElementById('mano-obra').value) || 0;
+            const transporte = parseFloat(document.getElementById('transporte').value) || 0;
+            const otrosGastos = parseFloat(document.getElementById('otros-gastos').value) || 0;
+            const margen = parseFloat(document.getElementById('margen-ganancia').value) || 0;
+
+            const costoTotal = materiaPrima + manoObra + transporte + otrosGastos;
+            const costoUnitario = costoTotal / unidades;
+            const precioVentaUnitario = costoUnitario * (1 + (margen / 100));
+            const ingresoTotal = precioVentaUnitario * unidades;
+            const gananciaTotal = ingresoTotal - costoTotal;
+
+            document.getElementById('res-costo-total').textContent = `$${costoTotal.toLocaleString('es-CO', {minimumFractionDigits: 2})}`;
+            document.getElementById('res-costo-unitario').textContent = `$${costoUnitario.toLocaleString('es-CO', {minimumFractionDigits: 2})}`;
+            document.getElementById('res-precio-venta').textContent = `$${precioVentaUnitario.toLocaleString('es-CO', {minimumFractionDigits: 2})}`;
+            document.getElementById('res-ganancia-total').textContent = `$${gananciaTotal.toLocaleString('es-CO', {minimumFractionDigits: 2})}`;
+
+            resultadoBox.style.display = 'block';
+        });
+
+        btnLimpiar.addEventListener('click', () => {
+            form.reset();
+            document.getElementById('margen-ganancia').value = '30';
+            document.getElementById('materia-prima').value = '0';
+            document.getElementById('mano-obra').value = '0';
+            document.getElementById('transporte').value = '0';
+            document.getElementById('otros-gastos').value = '0';
+            resultadoBox.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

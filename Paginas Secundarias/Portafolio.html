@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Sativa Nova</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_paginas.css">
+    <style>
+        .portafolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .portafolio-card {
+            background: rgba(20, 20, 28, 0.85);
+            border: 1px solid rgba(40, 211, 77, 0.3);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .portafolio-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #28d34d;
+            margin-bottom: 15px;
+        }
+        .media-container {
+            width: 100%;
+            height: 280px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .media-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .btn-calameo {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #28d34d;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            border-radius: 20px;
+            transition: background 0.3s, transform 0.2s;
+            font-size: 0.9rem;
+        }
+        .btn-calameo:hover {
+            background-color: #1eaa31;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-secundaria">
+        <a href="../index.html"><img src="../Imagenes/Captura_de_pantalla_2026-09-16_103635-removebg-preview.png" alt="Sativa Nova Logo"></a>
+        <ul class="menu-interno">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="Nosotros.html">Nosotros</a></li>
+            <li><a href="Productos.html">Productos</a></li>
+            <li><a href="Portafolio.html" style="color: #28d34d;">Portafolio</a></li>
+            <li><a href="Galeria.html">Galería</a></li>
+            <li><a href="Ventas.html">Ventas</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-hero" style="padding: 40px 20px;">
+        <div class="glass-box" style="max-width: 1200px; width: 100%;">
+            <h1 class="titulo-seccion">Nuestro Portafolio</h1>
+            <p class="texto-seccion">Explora nuestro video institucional, la revista digital y el volante publicitario interactivo de Sativa Nova.</p>
+            
+            <div class="portafolio-grid">
+                <!-- 1. VIDEO (Corregido con parámetros de API de YouTube) -->
+                <div class="portafolio-card">
+                    <h3>Video Institucional</h3>
+                    <div class="media-container">
+                        <iframe src="https://www.youtube.com/embed/xf5nffbfuDI?enablejsapi=1" title="Video Sativa Nova" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <a href="https://youtube.com/shorts/xf5nffbfuDI" target="_blank" class="btn-calameo">Ver Video en YouTube</a>
+                </div>
+
+                <!-- 2. REVISTA (Calaméo) -->
+                <div class="portafolio-card">
+                    <h3>Revista Digital</h3>
+                    <div class="media-container">
+                        <iframe src="https://v.calameo.com/?bkcode=00833144329fcc2f2106e&mode=mini" title="Revista Sativa Nova" scrolling="no" allowtransparency="true" frameborder="0" style="width:100%;height:100%"></iframe>
+                    </div>
+                    <a href="https://www.calameo.com/read/00833144329fcc2f2106e" target="_blank" class="btn-calameo">Ver Revista Completa</a>
+                </div>
+
+                <!-- 3. VOLANTE (Calaméo) -->
+                <div class="portafolio-card">
+                    <h3>Volante Publicitario</h3>
+                    <div class="media-container">
+                        <iframe src="https://v.calameo.com/?bkcode=008331443964f54d6034a&mode=mini" title="Volante Sativa Nova" scrolling="no" allowtransparency="true" frameborder="0" style="width:100%;height:100%"></iframe>
+                    </div>
+                    <a href="https://www.calameo.com/read/008331443964f54d6034a" target="_blank" class="btn-calameo">Ver Volante Completo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sativa Nova: agricultura hidropónica con frescura duradera y tecnología avanzada.">
+    <meta name="theme-color" content="#28d34d">
+    <title>Sativa Nova - Agricultura Hidropónica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="top-bar" id="top-bar">
+        <div class="top-bar-content">
+            <span id="top-bar-text" class="fade-text">Frescura duradera</span>
+        </div>
+    </div>
+
+    <header class="main-header" id="main-header">
+        <nav class="nav-container" aria-label="Navegación principal">
+            <div class="nav-logo">
+                <a href="#" aria-label="Sativa Nova - Ir al inicio">
+                    <img src="Imagenes/Captura_de_pantalla_2026-09-16_103635-removebg-preview.png" alt="Logotipo Sativa Nova">
+                </a>
+            </div>
+
+            <button class="hamburger" id="hamburger-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link" aria-current="page">Inicio</a></li>
+                <li class="nav-item menu-desplegable">
+                    <a href="Paginas Secundarias/Nosotros.html" class="nav-link">Nosotros ▾</a>
+                    <ul class="submenu">
+                        <li><a href="Paginas Secundarias/Mision.html">Misión</a></li>
+                        <li><a href="Paginas Secundarias/Vision.html">Visión</a></li>
+                        <li><a href="Paginas Secundarias/Valores.html">Valores</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="Paginas Secundarias/Productos.html" class="nav-link">Productos</a></li>
+                <li class="nav-item"><a href="Paginas Secundarias/Portafolio.html" class="nav-link">Portafolio</a></li>
+                <li class="nav-item"><a href="Paginas Secundarias/Galeria.html" class="nav-link">Galería</a></li>
+                <li class="nav-item"><a href="Paginas Secundarias/Ventas.html" class="nav-link">Ventas</a></li>
+                <li class="nav-item contact-item">
+                    <a href="Paginas Secundarias/Contacto.html" class="btn-contacto" id="btn-contacto">
+                        <span class="btn-text">Contacto</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="nav-overlay" id="nav-overlay"></div>
+        <div class="scroll-progress" aria-hidden="true"></div>
+    </header>
+
+    <section class="banner-slider" id="contenido">
+        <div class="slider-track" id="slider-track">
+            <div class="slide activo">
+                <img src="Imagenes/banner1.png" alt="Visión Sativa Nova">
+                <div class="slide-overlay">
+                    <div class="slide-content glass-card">
+                        <h2>Visión 2031</h2>
+                        <p>Seremos referente en Medellín en la implementación de soluciones de agricultura urbana e hidroponía inteligente.</p>
+                        <a href="Paginas Secundarias/Vision.html" class="btn-banner">Nuestra Visión</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="Imagenes/banner2.png" alt="Misión Sativa Nova">
+                <div class="slide-overlay">
+                    <div class="slide-content glass-card">
+                        <h2>Nuestra Misión</h2>
+                        <p>Transformamos hogares urbanos llevando alimentos frescos, inocuos y sostenibles a espacios reducidos mediante tecnología automatizada.</p>
+                        <a href="Paginas Secundarias/Mision.html" class="btn-banner">Nuestra Misión</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="Imagenes/banner3.png" alt="Valores Sativa Nova">
+                <div class="slide-overlay">
+                    <div class="slide-content glass-card">
+                        <h2>Valores Corporativos</h2>
+                        <p>Innovación Tecnológica, Sostenibilidad, Calidad, Compromiso Familiar y Eficiencia para un futuro alimentario sostenible.</p>
+                        <a href="Paginas Secundarias/Valores.html" class="btn-banner">Nuestros Valores</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="slider-btn prev-btn" id="prev-btn" aria-label="Anterior imagen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="slider-btn next-btn" id="next-btn" aria-label="Siguiente imagen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+
+        <div class="slider-dots">
+            <span class="dot activo" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+        </div>
+    </section>
+
+    <main class="espacio-prueba">
+        <h1>Bienvenido a Sativa Nova</h1>
+        <p>Haz scroll hacia abajo para ver cómo el menú verde se fija en la pantalla elegantemente.</p>
+    </main>
+
+    <script src="Codigo.js" defer></script>
+</body>
+</html>
