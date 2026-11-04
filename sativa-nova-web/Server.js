@@ -2,19 +2,14 @@ const express = require('express');
 const { Pool } = require('pg');
 const app = express();
 
-// Middlewares necesarios
 app.use(express.static('public'));
-app.use(express.json()); // Vital para que el servidor entienda los JSON que envía la Pico W
+app.use(express.json());
 
-// Configuración de la conexión a PostgreSQL (Neon)
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
-    }
+    ssl: { rejectUnauthorized: false }
 });
 
-// Ruta para recibir los datos de la Pico W
 app.post('/api/lecturas', async (req, res) => {
     try {
         const { 
@@ -27,7 +22,7 @@ app.post('/api/lecturas', async (req, res) => {
             tds_ppm 
         } = req.body;
 
-        console.log("Datos recibidos de la Pico W:", req.body);
+        console.log("Datos limpios recibidos de la Pico W:", req.body);
 
         const query = `
             INSERT INTO lecturas (device_id, temperatura_agua, temperatura_ambiente, humedad_ambiente, humedad_suelo, ph, tds_ppm, fecha) 
@@ -54,16 +49,11 @@ app.post('/api/lecturas', async (req, res) => {
 
     } catch (error) {
         console.error('Error al guardar en la base de datos:', error);
-        res.status(500).json({ 
-            success: false, 
-            error: error.message 
-        });
+        res.status(500).json({ success: false, error: error.message });
     }
 });
 
-// Puerto dinámico para Render
 const PORT = process.env.PORT || 3000;
-
 app.listen(PORT, () => {
-    console.log(`Servidor Sativa Nova corriendo exitosamente en el puerto ${PORT}`);
+    console.log(`Servidor Sativa Nova corriendo en el puerto ${PORT}`);
 });
