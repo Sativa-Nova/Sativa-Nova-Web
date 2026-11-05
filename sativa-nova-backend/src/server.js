@@ -4,7 +4,7 @@ import http from 'node:http';
 import express from 'express';
 import cors from 'cors';
 import { Server } from 'socket.io';
-import routes from './routes/index.js';
+import routes from './routers/index.js';
 import { pool } from './config/db.js';
 
 const app = express();
